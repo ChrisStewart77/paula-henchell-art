@@ -2,7 +2,8 @@
 
 import { Painting } from '@/lib/paintings';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useCart } from '@/context/CartContext';
 
 interface LightboxProps {
   painting: Painting;
@@ -10,6 +11,9 @@ interface LightboxProps {
 }
 
 export default function Lightbox({ painting, onClose }: LightboxProps) {
+  const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -17,6 +21,12 @@ export default function Lightbox({ painting, onClose }: LightboxProps) {
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
   }, [onClose]);
+
+  const handleAddToCart = () => {
+    addToCart(painting);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
 
   return (
     <div
@@ -67,8 +77,15 @@ export default function Lightbox({ painting, onClose }: LightboxProps) {
               <p className="font-serif text-3xl text-gray-900">
                 ${painting.price}
               </p>
-              <button className="w-full px-6 py-3 bg-gray-900 text-white font-sans rounded hover:bg-gray-800 transition-colors">
-                Add to Cart
+              <button
+                onClick={handleAddToCart}
+                className={`w-full px-6 py-3 font-sans rounded transition-colors ${
+                  added
+                    ? 'bg-green-600 text-white'
+                    : 'bg-gray-900 text-white hover:bg-gray-800'
+                }`}
+              >
+                {added ? '✓ Added to Cart' : 'Add to Cart'}
               </button>
             </div>
           </div>

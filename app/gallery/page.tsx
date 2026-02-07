@@ -1,3 +1,6 @@
+import { paintings } from '@/lib/paintings';
+import Image from 'next/image';
+
 export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-[#fdfcfa]">
@@ -10,14 +13,21 @@ export default function GalleryPage() {
             Browse our collection of original oil paintings
           </p>
 
-          {/* Placeholder for gallery grid */}
+          {/* Gallery grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="group cursor-pointer">
-                <div className="aspect-square bg-gray-200 rounded mb-3"></div>
-                <h3 className="font-serif text-xl text-gray-900">Painting Title</h3>
-                <p className="font-sans text-sm text-gray-500">Category</p>
-                <p className="font-sans text-lg text-gray-900 mt-1">$XXX</p>
+            {paintings.map((painting) => (
+              <div key={painting.id} className="group cursor-pointer">
+                <div className="aspect-square relative overflow-hidden rounded mb-3 bg-gray-100">
+                  <Image
+                    src={painting.image}
+                    alt={painting.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="font-serif text-xl text-gray-900">{painting.title}</h3>
+                <p className="font-sans text-sm text-gray-500">{painting.category}</p>
+                <p className="font-sans text-lg text-gray-900 mt-1">${painting.price}</p>
               </div>
             ))}
           </div>

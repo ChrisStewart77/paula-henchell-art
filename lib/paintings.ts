@@ -22,12 +22,12 @@ export const paintings: Painting[] = [
   },
   {
     id: '2',
-    title: 'Wild Roses',
+    title: "Cathy's Peony",
     category: 'Flowers',
-    price: 320,
-    image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80',
-    description: 'Delicate pink wild roses in full bloom.',
-    dimensions: '12" x 16"',
+    price: 495,
+    image: '/cathys-peony.jpg',
+    description: 'A stunning oil painting of peonies in full bloom, capturing their delicate petals and vibrant colors.',
+    dimensions: '11" x 14"',
     available: true,
   },
   {

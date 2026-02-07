@@ -1,13 +1,15 @@
 'use client';
 
-import { paintings } from '@/lib/paintings';
+import { paintings, Painting } from '@/lib/paintings';
 import Image from 'next/image';
 import { useState } from 'react';
+import Lightbox from '@/components/Lightbox';
 
 type Category = 'All' | 'Landscapes' | 'Flowers' | 'Animals' | 'Birds' | 'Misc';
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
+  const [selectedPainting, setSelectedPainting] = useState<Painting | null>(null);
 
   const categories: Category[] = ['All', 'Landscapes', 'Flowers', 'Animals', 'Birds', 'Misc'];
 
@@ -46,7 +48,11 @@ export default function GalleryPage() {
           {/* Gallery grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPaintings.map((painting) => (
-              <div key={painting.id} className="group cursor-pointer">
+              <div
+                key={painting.id}
+                className="group cursor-pointer"
+                onClick={() => setSelectedPainting(painting)}
+              >
                 <div className="aspect-square relative overflow-hidden rounded mb-3 bg-gray-100">
                   <Image
                     src={painting.image}
@@ -69,6 +75,14 @@ export default function GalleryPage() {
           )}
         </div>
       </div>
+
+      {/* Lightbox */}
+      {selectedPainting && (
+        <Lightbox
+          painting={selectedPainting}
+          onClose={() => setSelectedPainting(null)}
+        />
+      )}
     </main>
   );
 }

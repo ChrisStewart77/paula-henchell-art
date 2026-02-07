@@ -8,11 +8,11 @@ export default function Home() {
             Paula Henchell
           </h1>
           <p className="font-sans text-xl md:text-2xl text-gray-600 mb-8 font-light">
-            Original Oil Paintings
+            Original Oil & Watercolor Paintings
           </p>
           <p className="font-sans text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
             Capturing the beauty of nature through vibrant landscapes, delicate florals, 
-            and wildlife portraits in rich, expressive oils.
+            and wildlife portraits in rich oils and expressive watercolors.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a

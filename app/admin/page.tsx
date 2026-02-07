@@ -98,9 +98,12 @@ export default function AdminPage() {
               <p className="font-sans text-gray-600 mb-4">
                 Add new artwork to the gallery
               </p>
-              <button className="px-6 py-3 bg-gray-900 text-white font-sans rounded hover:bg-gray-800 transition-colors">
+              <a
+                href="/admin/upload"
+                className="inline-block px-6 py-3 bg-gray-900 text-white font-sans rounded hover:bg-gray-800 transition-colors"
+              >
                 Upload Painting
-              </button>
+              </a>
             </div>
 
             <div className="bg-white rounded-lg p-6">
@@ -110,9 +113,12 @@ export default function AdminPage() {
               <p className="font-sans text-gray-600 mb-4">
                 Edit or remove existing artwork
               </p>
-              <button className="px-6 py-3 bg-gray-900 text-white font-sans rounded hover:bg-gray-800 transition-colors">
+              <a
+                href="/admin/manage"
+                className="inline-block px-6 py-3 bg-gray-900 text-white font-sans rounded hover:bg-gray-800 transition-colors"
+              >
                 View All Paintings
-              </button>
+              </a>
             </div>
           </div>
         </div>

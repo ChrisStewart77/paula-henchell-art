@@ -1,4 +1,25 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function Home() {
+  const featuredPaintings = [
+    {
+      id: '10',
+      title: 'Desert Twilight',
+      image: '/desert-sunset.jpg',
+    },
+    {
+      id: '17',
+      title: 'Sunflowers in Crystal',
+      image: '/sunflowers-crystal-vase.jpg',
+    },
+    {
+      id: '13',
+      title: 'Mountain Path',
+      image: '/mountain-path.jpg',
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-[#fdfcfa]">
       {/* Hero Section */}
@@ -33,10 +54,27 @@ export default function Home() {
 
       {/* Featured Work Preview */}
       <section className="container mx-auto px-6 py-16">
+        <h2 className="text-3xl font-serif text-center text-gray-900 mb-12">Featured Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div className="aspect-square bg-gray-200 rounded"></div>
-          <div className="aspect-square bg-gray-200 rounded"></div>
-          <div className="aspect-square bg-gray-200 rounded"></div>
+          {featuredPaintings.map((painting) => (
+            <Link
+              key={painting.id}
+              href="/gallery"
+              className="group relative aspect-square overflow-hidden rounded shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <Image
+                src={painting.image}
+                alt={painting.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-white font-serif text-lg">{painting.title}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
     </main>

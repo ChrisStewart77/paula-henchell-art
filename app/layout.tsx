@@ -17,8 +17,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Paula Henchell - Original Oil Paintings",
-  description: "Browse and purchase original oil paintings by Paula Henchell. Landscapes, florals, wildlife, and more.",
+  title: "Paula Henchell - Original Oil & Watercolor Paintings",
+  description: "Browse and purchase original oil and watercolor paintings by Paula Henchell. Landscapes, florals, wildlife, and more.",
 };
 
 export default function RootLayout({

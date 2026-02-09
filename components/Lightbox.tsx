@@ -74,9 +74,6 @@ export default function Lightbox({ painting, onClose }: LightboxProps) {
             </div>
 
             <div className="space-y-3">
-              <p className="font-serif text-3xl text-gray-900">
-                ${painting.price}
-              </p>
               <button
                 onClick={handleAddToCart}
                 className={`w-full px-6 py-3 font-sans rounded transition-colors ${

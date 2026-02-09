@@ -63,7 +63,6 @@ export default function GalleryPage() {
                 </div>
                 <h3 className="font-serif text-xl text-gray-900">{painting.title}</h3>
                 <p className="font-sans text-sm text-gray-500">{painting.category}</p>
-                <p className="font-sans text-lg text-gray-900 mt-1">${painting.price}</p>
               </div>
             ))}
           </div>

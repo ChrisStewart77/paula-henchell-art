@@ -13,9 +13,11 @@ export default function GalleryPage() {
 
   const categories: Category[] = ['All', 'Landscapes', 'Flowers', 'Animals', 'Birds', 'Misc'];
 
+  const colorPaintings = paintings.filter((p) => p.category !== 'Pencil Drawings');
+
   const filteredPaintings = selectedCategory === 'All'
-    ? paintings
-    : paintings.filter(p => p.category === selectedCategory);
+    ? colorPaintings
+    : colorPaintings.filter(p => p.category === selectedCategory);
 
   return (
     <main className="min-h-screen bg-[#fdfcfa]">
@@ -25,7 +27,7 @@ export default function GalleryPage() {
             Gallery
           </h1>
           <p className="font-sans text-lg text-gray-600 mb-8">
-            Browse our collection of original oil paintings
+            Browse Paula&apos;s collection of original color paintings
           </p>
 
           {/* Category Filter */}

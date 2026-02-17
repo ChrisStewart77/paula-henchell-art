@@ -43,6 +43,12 @@ export default function Home() {
               View Gallery
             </a>
             <a
+              href="/commissions"
+              className="px-8 py-3 border border-gray-300 text-gray-900 font-sans rounded hover:border-gray-400 transition-colors"
+            >
+              Pencil Commissions
+            </a>
+            <a
               href="/contact"
               className="px-8 py-3 border border-gray-300 text-gray-900 font-sans rounded hover:border-gray-400 transition-colors"
             >

@@ -18,6 +18,9 @@ export default function Header() {
             <Link href="/gallery" className="font-sans text-gray-700 hover:text-gray-900">
               Gallery
             </Link>
+            <Link href="/commissions" className="font-sans text-gray-700 hover:text-gray-900">
+              Commissions
+            </Link>
             <Link href="/about" className="font-sans text-gray-700 hover:text-gray-900">
               About
             </Link>
